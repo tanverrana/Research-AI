@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ResearchAI | Kyungsung University</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <div class="university-brand">
+
+                <img
+                    src="{{ url_for('static', filename='images/logo.jpg') }}"
+                    alt="Kyungsung University Logo"
+                    class="university-logo"
+                >
+
+                <div class="university-text">
+
+                    <strong>KYUNGSUNG UNIVERSITY</strong>
+
+                    <span>AI Research Assistant</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="nav-badge">
+
+                <span class="status-dot"></span>
+
+                AI Powered
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-container">
+
+            <div class="hero-content">
+
+                <div class="small-label">
+
+                    <span>✦</span>
+
+                    ARTIFICIAL INTELLIGENCE
+
+                </div>
+
+
+                <h1>
+
+                    Turn your research idea into
+
+                    <span>structured research.</span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    ResearchAI helps students transform research
+                    ideas into structured summaries, objectives,
+                    questions, methodologies and AI/ML model
+                    recommendations.
+
+                </p>
+
+
+                <div class="student-card">
+
+                    <div class="student-icon">
+
+                        TR
+
+                    </div>
+
+                    <div>
+
+                        <span class="student-label">
+                            Student
+                        </span>
+
+                        <strong>
+                            Sobur Md Tanver Rana
+                        </strong>
+
+                    </div>
+
+                    <div class="student-divider"></div>
+
+                    <div>
+
+                        <span class="student-label">
+                            Student ID
+                        </span>
+
+                        <strong>
+                            2026512889
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <div class="ai-orb">
+
+                    <div class="orb-inner">
+
+                        <span>AI</span>
+
+                    </div>
+
+                </div>
+
+                <div class="floating-card card-one">
+
+                    <span class="floating-icon">🧠</span>
+
+                    <div>
+
+                        <strong>Research Ideas</strong>
+
+                        <small>AI generated</small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="floating-card card-two">
+
+                    <span class="floating-icon">📊</span>
+
+                    <div>
+
+                        <strong>ML Models</strong>
+
+                        <small>Smart suggestions</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= MAIN APP ================= -->
+
+    <main class="main-container">
+
+
+        <!-- TOOL SELECTOR -->
+
+        <div class="tool-selector">
+
+            <button
+                class="tool-button active"
+                onclick="switchTool('analysis')"
+                id="analysisTab"
+            >
+
+                <span>🔬</span>
+
+                Research Analysis
+
+            </button>
+
+
+            <button
+                class="tool-button"
+                onclick="switchTool('title')"
+                id="titleTab"
+            >
+
+                <span>✍️</span>
+
+                Academic Title Generator
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ================= RESEARCH ANALYSIS ================= -->
+
+        <section
+            class="app-card"
+            id="analysisSection"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-icon orange-icon">
+                        🔬
+                    </div>
+
+                    <div class="section-title">
+
+                        <h2>
+                            Research Analysis
+                        </h2>
+
+                        <p>
+                            Enter your research idea and let AI
+                            structure your research plan.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group full-width">
+
+                    <label for="researchTopic">
+
+                        Research Topic
+
+                        <span>*</span>
+
+                    </label>
+
+                    <textarea
+                        id="researchTopic"
+                        placeholder="Example: Machine Learning for Cancer Detection Using Medical Images"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="researchField">
+
+                        Research Field
+
+                    </label>
+
+                    <select id="researchField">
+
+                        <option>
+                            Computer Science
+                        </option>
+
+                        <option>
+                            Artificial Intelligence
+                        </option>
+
+                        <option>
+                            Machine Learning
+                        </option>
+
+                        <option>
+                            Data Science
+                        </option>
+
+                        <option>
+                            Biomedical Engineering
+                        </option>
+
+                        <option>
+                            Industrial Engineering
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="generate-button"
+                onclick="generateResearch()"
+                id="researchButton"
+            >
+
+                <span>✨</span>
+
+                Generate Research Analysis
+
+                <span class="arrow">→</span>
+
+            </button>
+
+
+            <div
+                class="loading"
+                id="researchLoading"
+            >
+
+                <div class="spinner"></div>
+
+                <span>
+                    AI is analyzing your research topic...
+                </span>
+
+            </div>
+
+
+            <div
+                class="result-container"
+                id="researchResult"
+            >
+
+                <div class="result-header">
+
+                    <div>
+
+                        <span class="result-label">
+                            AI GENERATED RESULT
+                        </span>
+
+                        <h3>
+                            Research Analysis
+                        </h3>
+
+                    </div>
+
+                    <button
+                        class="copy-button"
+                        onclick="copyResult('researchOutput')"
+                    >
+
+                        Copy
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="result-content"
+                    id="researchOutput"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= TITLE GENERATOR ================= -->
+
+        <section
+            class="app-card hidden"
+            id="titleSection"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-icon orange-icon">
+                        ✍️
+                    </div>
+
+                    <div class="section-title">
+
+                        <h2>
+                            Academic Title Generator
+                        </h2>
+
+                        <p>
+                            Generate professional academic titles
+                            from your research idea.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group full-width">
+
+                <label for="titleTopic">
+
+                    Research Idea
+
+                    <span>*</span>
+
+                </label>
+
+                <textarea
+                    id="titleTopic"
+                    placeholder="Example: I want to use deep learning to detect esophageal cancer from medical images."
+                ></textarea>
+
+            </div>
+
+
+            <button
+                class="generate-button"
+                onclick="generateTitles()"
+                id="titleButton"
+            >
+
+                <span>✨</span>
+
+                Generate Academic Titles
+
+                <span class="arrow">→</span>
+
+            </button>
+
+
+            <div
+                class="loading"
+                id="titleLoading"
+            >
+
+                <div class="spinner"></div>
+
+                <span>
+                    AI is generating academic titles...
+                </span>
+
+            </div>
+
+
+            <div
+                class="result-container"
+                id="titleResult"
+            >
+
+                <div class="result-header">
+
+                    <div>
+
+                        <span class="result-label">
+                            AI GENERATED RESULT
+                        </span>
+
+                        <h3>
+                            Suggested Research Titles
+                        </h3>
+
+                    </div>
+
+                    <button
+                        class="copy-button"
+                        onclick="copyResult('titleOutput')"
+                    >
+
+                        Copy
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="result-content"
+                    id="titleOutput"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+
+                <strong>
+                    ResearchAI
+                </strong>
+
+                <span>
+                    AI Research Assistant
+                </span>
+
+            </div>
+
+
+            <div class="footer-center">
+
+                Assignment 2 · Big Data and Open AI
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Kyungsung University
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+
+</body>
+
+</html>
