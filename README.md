@@ -6,7 +6,7 @@ A simple cloud-based AI web application developed for Assignment 2.
 
 ### Student
 
-Name: Tanver Rana
+Name: Sobur Md Tanver Rana
 
 University: Kyungsung University
 
